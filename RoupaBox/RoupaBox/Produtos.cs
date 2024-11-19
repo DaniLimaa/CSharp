@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RoupaBox
+{
+    internal class Produtos
+    {
+        List<ProdutoCad> listaprodutos = new List<ProdutoCad>();
+        public ProdutoCad cadProdutos()
+        {
+
+            Console.Clear();
+            Console.WriteLine("Cadastro de Produtos:");
+
+            Console.WriteLine("\n Digite a descrição do produto:");
+            string descPro = Console.ReadLine();
+
+            var Produto = new ProdutoCad(descPro);
+
+            Console.WriteLine("\n Digite o nome da marca do produto:");
+            string marcaPro = Console.ReadLine();
+            Produto.marcaPro = marcaPro;
+
+
+            Console.WriteLine("\n Digite o tamanho do produto:");
+            string tamPro = Console.ReadLine();
+            Produto.tamPro = tamPro;
+
+
+            Console.WriteLine("\n Digite a cor do produto:");
+            string corPro = Console.ReadLine();
+            Produto.corPro = corPro;
+
+
+            Console.WriteLine("\n Digite a categoria do produto:");
+            string catPro = Console.ReadLine();
+            Produto.catPro = catPro;
+
+
+            Console.WriteLine("\n Digite o valor do produto:");
+            double valPro = double.Parse(Console.ReadLine());
+            Produto.valPro = valPro;
+
+
+            Console.WriteLine("\n Digite o peso do produto:");
+            double pesoPro = int.Parse(Console.ReadLine());
+            Produto.pesoPro = pesoPro;
+
+            listaprodutos.Add(Produto);
+
+            Console.WriteLine($"produto cadastrado com sucesso!!!");
+            foreach (var produto in listaprodutos)
+            {
+                Console.WriteLine($"Desrição:  {produto.descPro}, " + $"Valor:{produto.valPro} ");
+            }
+
+            Console.WriteLine("\nDigite uma tecla para voltar ao menu principal.");
+            Console.ReadKey();
+            Console.Clear();
+
+            Cabecalho variavelCabecalho = new Cabecalho();
+            variavelCabecalho.exibirCabecalho();
+
+            Produtos varPro = new Produtos();
+            ExibirMenu variavelMenu = new ExibirMenu();
+
+            return Produto;
+        }
+    }
+}
